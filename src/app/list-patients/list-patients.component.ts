@@ -38,7 +38,13 @@ export class ListPatientsComponent implements OnInit {
     this.hapiService
       .getRandomPatients()
       .pipe(
-        map((items) => items.filter((data) => data.resource.name != undefined))
+        map((items) =>
+          items.filter(
+            (data) =>
+              data.resource.name != undefined &&
+              data.resource.name[0].family != undefined
+          )
+        )
       )
       .subscribe((data) => {
         this.patientListRandom =

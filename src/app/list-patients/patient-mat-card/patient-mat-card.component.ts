@@ -9,28 +9,14 @@ import { StorageService } from 'src/app/shared/storageService/storage.service';
 })
 export class PatientMatCardComponent implements OnInit {
   @Input() patientListRandom: Patient[] = [];
-  p3: Patient[] = [];
+  patientList: Patient[] = [];
   p1: Patient = this.patientListRandom[0];
   p: Patient[] = [];
   constructor(private storageService: StorageService) {}
 
-  ngOnInit(): void {
-    console.log(this.storageService.patientListRandom);
-
-    console.log('asdasdasd' + this.p);
-  }
+  ngOnInit(): void {}
 
   ngOnChanges() {
-    console.log('3');
-    this.getPatientsDefined();
-  }
-
-  getPatientsDefined() {
-    console.log('antes' + this.patientListRandom.length);
-    this.patientListRandom.filter((data) => {
-      data.resource.id == '1293520';
-    });
-    console.log('despues' + this.patientListRandom.length);
-    this.p3 = this.patientListRandom;
+    this.patientList = this.patientListRandom;
   }
 }
